@@ -4,6 +4,7 @@
  */
 
 import { useEffect, useState } from 'react';
+import { ContactModal } from './ContactModal';
 
 function FaqItem({ question, answer, delayClass }: { question: string, answer: string, delayClass: string }) {
   const [open, setOpen] = useState(false);
@@ -25,6 +26,8 @@ function FaqItem({ question, answer, delayClass }: { question: string, answer: s
 }
 
 export default function App() {
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+
   useEffect(() => {
     const observerOptions = {
         root: null,
@@ -70,7 +73,7 @@ export default function App() {
       {/* TopNavBar */}
       <nav className="fixed top-0 w-full z-50 bg-surface-container-lowest/90 backdrop-blur-md border-b border-deep-charcoal flex justify-between items-center h-16 px-4 md:px-margin-desktop max-w-full">
         <div className="text-headline-sub font-headline-sub font-black tracking-tighter text-primary">SHADOWADSLAB</div>
-        <a href="https://wa.me/96879581789" target="_blank" rel="noopener noreferrer" className="border border-deep-charcoal px-6 py-2 font-label-mono text-label-mono uppercase hover:bg-coral-orange hover:text-pure-white transition-colors duration-200 inline-block">Free Audit →</a>
+        <button onClick={() => setIsContactModalOpen(true)} className="cursor-pointer border border-deep-charcoal px-6 py-2 font-label-mono text-label-mono uppercase hover:bg-coral-orange hover:text-pure-white transition-colors duration-200 inline-block rounded-full">Free Audit →</button>
       </nav>
 
       {/* Ticker */}
@@ -87,14 +90,14 @@ export default function App() {
         <div className="floating absolute inset-0 pointer-events-none opacity-[0.03] flex items-center justify-center font-metric-lg text-[30vw] leading-none text-deep-charcoal font-bold transform -rotate-6 select-none z-0">
             200%
         </div>
-        <div className="relative z-10 max-w-5xl bg-pure-white/90 p-8 border border-deep-charcoal backdrop-blur-sm">
+        <div className="relative z-10 max-w-5xl bg-pure-white/90 p-8 border border-deep-charcoal backdrop-blur-sm rounded-3xl">
           <h1 className="reveal-up font-display-hero-mobile md:font-display-hero text-display-hero-mobile md:text-display-hero text-deep-charcoal mb-6 leading-tight">Performance or<br/>Nothing.</h1>
           <p className="reveal-up stagger-1 font-headline-sub text-[20px] md:text-headline-sub text-deep-charcoal/90 mb-10 max-w-2xl font-medium">
             They get clicks, but not enough buyers. They have sales, but their margins are shrinking. They have a marketing agency, but no growth strategy. We strip away the fluff to deliver raw, undeniable results.
           </p>
-          <a href="https://wa.me/96879581789" target="_blank" rel="noopener noreferrer" className="reveal-up stagger-2 outline-none inline-block bg-coral-orange text-pure-white px-8 py-4 font-label-mono text-label-mono uppercase hover:bg-deep-charcoal transition-colors duration-200 border-2 border-coral-orange hover:border-deep-charcoal">
+          <button onClick={() => setIsContactModalOpen(true)} className="cursor-pointer reveal-up stagger-2 outline-none inline-block bg-coral-orange text-pure-white px-8 py-4 font-label-mono text-label-mono uppercase hover:bg-deep-charcoal transition-colors duration-200 border-2 border-coral-orange hover:border-deep-charcoal rounded-full">
             Book Your Free Audit →
-          </a>
+          </button>
         </div>
       </section>
 
@@ -110,9 +113,9 @@ export default function App() {
       <section className="scroll-section relative w-full px-4 md:px-margin-desktop py-24 bg-surface-container-low border-b border-deep-charcoal overflow-hidden bg-dot-pattern bg-dot-size">
         <div className="max-w-7xl mx-auto">
           <h2 className="reveal-up font-display-hero-mobile md:font-[800] text-display-hero-mobile md:text-7xl text-deep-charcoal mb-12 tracking-tighter">One Team. Every Part Of Growth.</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border border-deep-charcoal bg-deep-charcoal">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 bg-transparent">
             {/* Service 1 */}
-            <div className="service-card relative bg-pure-white border-[0.5px] border-deep-charcoal p-10 overflow-hidden h-[350px] flex flex-col justify-end group">
+            <div className="service-card relative bg-pure-white border border-deep-charcoal rounded-2xl p-10 overflow-hidden h-[350px] flex flex-col justify-end group shadow-sm hover:shadow-md">
               <div className="bg-num absolute top-4 right-4 font-metric-lg text-6xl text-deep-charcoal opacity-10 select-none z-0 scramble-hover font-bold">01</div>
               <div className="relative z-10">
                 <h3 className="font-metric-lg text-3xl mb-4 font-bold tracking-tight">Paid Ads</h3>
@@ -120,7 +123,7 @@ export default function App() {
               </div>
             </div>
             {/* Service 2 */}
-            <div className="service-card relative bg-pure-white border-[0.5px] border-deep-charcoal p-10 overflow-hidden h-[350px] flex flex-col justify-end group">
+            <div className="service-card relative bg-pure-white border border-deep-charcoal rounded-2xl p-10 overflow-hidden h-[350px] flex flex-col justify-end group shadow-sm hover:shadow-md">
               <div className="bg-num absolute top-4 right-4 font-metric-lg text-6xl text-deep-charcoal opacity-10 select-none z-0 scramble-hover font-bold">02</div>
               <div className="relative z-10">
                 <h3 className="font-metric-lg text-3xl mb-4 font-bold tracking-tight">Ad Account Structure</h3>
@@ -128,7 +131,7 @@ export default function App() {
               </div>
             </div>
             {/* Service 3 */}
-            <div className="service-card relative bg-pure-white border-[0.5px] border-deep-charcoal p-10 overflow-hidden h-[350px] flex flex-col justify-end group">
+            <div className="service-card relative bg-pure-white border border-deep-charcoal rounded-2xl p-10 overflow-hidden h-[350px] flex flex-col justify-end group shadow-sm hover:shadow-md">
               <div className="bg-num absolute top-4 right-4 font-metric-lg text-6xl text-deep-charcoal opacity-10 select-none z-0 scramble-hover font-bold">03</div>
               <div className="relative z-10">
                 <h3 className="font-metric-lg text-3xl mb-4 font-bold tracking-tight">CRO</h3>
@@ -136,7 +139,7 @@ export default function App() {
               </div>
             </div>
             {/* Service 4 */}
-            <div className="service-card relative bg-pure-white border-[0.5px] border-deep-charcoal p-10 overflow-hidden h-[350px] flex flex-col justify-end group">
+            <div className="service-card relative bg-pure-white border border-deep-charcoal rounded-2xl p-10 overflow-hidden h-[350px] flex flex-col justify-end group shadow-sm hover:shadow-md">
               <div className="bg-num absolute top-4 right-4 font-metric-lg text-6xl text-deep-charcoal opacity-10 select-none z-0 scramble-hover font-bold">04</div>
               <div className="relative z-10">
                 <h3 className="font-metric-lg text-3xl mb-4 font-bold tracking-tight">Email/SMS</h3>
@@ -144,7 +147,7 @@ export default function App() {
               </div>
             </div>
             {/* Service 5 */}
-            <div className="service-card relative bg-pure-white border-[0.5px] border-deep-charcoal p-10 overflow-hidden h-[350px] flex flex-col justify-end group">
+            <div className="service-card relative bg-pure-white border border-deep-charcoal rounded-2xl p-10 overflow-hidden h-[350px] flex flex-col justify-end group shadow-sm hover:shadow-md">
               <div className="bg-num absolute top-4 right-4 font-metric-lg text-6xl text-deep-charcoal opacity-10 select-none z-0 scramble-hover font-bold">05</div>
               <div className="relative z-10">
                 <h3 className="font-metric-lg text-3xl mb-4 font-bold tracking-tight">Organic</h3>
@@ -152,7 +155,7 @@ export default function App() {
               </div>
             </div>
             {/* Service 6 */}
-            <div className="service-card relative bg-pure-white border-[0.5px] border-deep-charcoal p-10 overflow-hidden h-[350px] flex flex-col justify-end group">
+            <div className="service-card relative bg-pure-white border border-deep-charcoal rounded-2xl p-10 overflow-hidden h-[350px] flex flex-col justify-end group shadow-sm hover:shadow-md">
               <div className="bg-num absolute top-4 right-4 font-metric-lg text-6xl text-deep-charcoal opacity-10 select-none z-0 scramble-hover font-bold">06</div>
               <div className="relative z-10">
                 <h3 className="font-metric-lg text-3xl mb-4 font-bold tracking-tight">SEO/Growth System</h3>
@@ -181,15 +184,15 @@ export default function App() {
           <h2 className="reveal-up font-display-hero-mobile md:font-[800] text-display-hero-mobile md:text-7xl text-deep-charcoal mb-16 tracking-tighter">WHO YOU WORK WITH.</h2>
           <p className="reveal-up font-headline-sub text-[20px] text-deep-charcoal/90 mb-12">No interns managing your account. You get a dedicated specialist team model.</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="reveal-up stagger-1 bg-pure-white border-2 border-deep-charcoal p-8">
+            <div className="reveal-up stagger-1 bg-pure-white border-2 border-deep-charcoal p-8 rounded-2xl">
               <h3 className="font-metric-lg text-2xl mb-4 font-bold text-coral-orange">MEDIA BUYER</h3>
               <p className="font-body-main text-[16px] text-deep-charcoal/80">Battle-tested veterans driving acquisition efficiently.</p>
             </div>
-            <div className="reveal-up stagger-2 bg-pure-white border-2 border-deep-charcoal p-8">
+            <div className="reveal-up stagger-2 bg-pure-white border-2 border-deep-charcoal p-8 rounded-2xl">
               <h3 className="font-metric-lg text-2xl mb-4 font-bold text-coral-orange">RETENTION</h3>
               <p className="font-body-main text-[16px] text-deep-charcoal/80">Maximizing LTV and turning one-time buyers into loyalists.</p>
             </div>
-            <div className="reveal-up stagger-3 bg-pure-white border-2 border-deep-charcoal p-8">
+            <div className="reveal-up stagger-3 bg-pure-white border-2 border-deep-charcoal p-8 rounded-2xl">
               <h3 className="font-metric-lg text-2xl mb-4 font-bold text-coral-orange">CREATIVE/OPS</h3>
               <p className="font-body-main text-[16px] text-deep-charcoal/80">Fueling the engine with high-converting assets and seamless execution.</p>
             </div>
@@ -212,7 +215,7 @@ export default function App() {
       <section className="scroll-section relative w-full px-4 md:px-margin-desktop py-24 bg-pure-white border-b border-deep-charcoal">
         <div className="max-w-4xl mx-auto">
           <h2 className="reveal-up font-display-hero-mobile md:font-[800] text-display-hero-mobile md:text-7xl text-deep-charcoal mb-16 tracking-tighter">FAQ.</h2>
-          <div className="border-t border-deep-charcoal">
+          <div className="border border-deep-charcoal rounded-2xl divide-y divide-deep-charcoal overflow-hidden bg-pure-white">
             <FaqItem 
               question="Do you work with startups?" 
               answer="Yes, provided you meet our minimum monthly ad spend requirement to ensure we have enough data velocity to drive meaningful results." 
@@ -235,9 +238,9 @@ export default function App() {
       {/* Audit CTA */}
       <section className="scroll-section relative w-full px-4 md:px-margin-desktop py-32 bg-deep-charcoal text-pure-white flex flex-col items-center text-center">
         <h2 className="reveal-up font-display-hero-mobile md:font-display-hero text-display-hero-mobile md:text-display-hero mb-10 leading-tight tracking-tighter max-w-4xl">READY FOR RAW PERFORMANCE?</h2>
-        <a href="https://wa.me/96879581789" target="_blank" rel="noopener noreferrer" className="reveal-up stagger-1 outline-none inline-block bg-coral-orange text-pure-white px-12 py-6 font-label-mono text-[16px] font-bold uppercase hover:bg-pure-white hover:text-deep-charcoal transition-colors duration-200 border-2 border-coral-orange">
+        <button onClick={() => setIsContactModalOpen(true)} className="cursor-pointer reveal-up stagger-1 outline-none inline-block bg-coral-orange text-pure-white px-12 py-6 font-label-mono text-[16px] font-bold uppercase hover:bg-pure-white hover:text-deep-charcoal transition-colors duration-200 border-2 border-coral-orange rounded-full">
             CLAIM YOUR FREE AUDIT
-        </a>
+        </button>
       </section>
 
       {/* Footer */}
@@ -255,6 +258,8 @@ export default function App() {
             <a className="text-pure-white/80 hover:text-coral-orange transition-colors duration-200 uppercase tracking-widest" href="mailto:Shadowadslab@gmail.com">EMAIL</a>
         </div>
       </footer>
+
+      <ContactModal isOpen={isContactModalOpen} onClose={() => setIsContactModalOpen(false)} />
     </div>
   );
 }
