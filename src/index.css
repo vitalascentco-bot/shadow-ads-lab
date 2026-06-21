@@ -182,6 +182,7 @@ body { background-color: #ffffff; color: #1A1A1A; overflow-x: hidden; }
 .contract-border {
     border: 2px solid #1A1A1A;
     box-shadow: 8px 8px 0px 0px #1A1A1A;
+    border-radius: 1.5rem;
 }
 
 .timeline-line {
